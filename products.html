@@ -8,6 +8,12 @@
     
 </head>
 <body>
+    <!--
+        CORRECTION (from part 1): the <h1> and <nav> below were previously
+        floating outside any <header> element. They are now wrapped in a proper
+        <header>, matching every other page, so the header styling in style.css
+        (background colour, flex layout, padding) applies consistently here too.
+    -->
     <header>
         <h1>MashFreshGreens Agriculture</h1>
         <nav>
@@ -21,6 +27,7 @@
 
 
     <main>
+         <!-- Intro text explaining what the gallery below shows -->
         <section>
             <h2>Our Gallery</h2>
 
@@ -29,6 +36,12 @@
             </p>
                   
         </section>
+        <!--           
+            CORRECTION (image files): the image files themselves were previously
+            nested inside wrongly-named folders (e.g. images/farm.jpg/ was a FOLDER
+            containing the real image under a different filename). The images folder
+            has been flattened so these src paths now correctly point at real files.
+        -->
 
         <section class="gallery">
             <div class="gallery-item">
