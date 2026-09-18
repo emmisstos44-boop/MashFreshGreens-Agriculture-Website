@@ -18,6 +18,10 @@
         </nav>
     </header>
     <main>
+         <!--
+            Contact details + embedded map. The map is inside the address paragraph
+            so screen readers announce it right after the address it corresponds to.
+        -->
         <section>
             <h2>Contact Us</h2>
             <p>
@@ -32,6 +36,7 @@
             </p>
             <p>
                 <strong>Address:</strong> Limpopo Polokwane 0700, South Africa
+                <!-- Google Maps embed: loading="lazy" so it doesn't slow down the page load for visitors who don't scroll down to it -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29180.00782610366!2d29.41975461083985!3d-23.907307899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d828de575a1b%3A0xd94d186f3a5b768c!2sDepartment%20of%20Agriculture%20and%20Rural%20Development!5e0!3m2!1sen!2sza!4v1786697962662!5m2!1sen!2sza" width="600"
                  height="450" 
                  style="border:0;" 
@@ -40,6 +45,11 @@
                  referrerpolicy="strict-origin-when-cross-origin"></iframe>               
             </p>
         </section>
+         <!--
+            Contact form: all three fields are marked "required" so the browser
+            blocks submission until name, email, and message are filled in,
+            improving the user experience by catching errors before submit.
+        -->
         
         <section>
             <h2>Send us a Message</h2>
