@@ -109,5 +109,198 @@ nav a {
     font-weight: 600;
     padding: 0.35rem 0.6rem;
     border-radius: var(--radius);
-    transition: background-color 0.2s ease; color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+nav a:hover,
+nav a:focus {
+    background-color: var(--colour-accent);
+    color: var(--colour-primary-dark);
+}
+
+nav a.active {
+    background-color: var(--colour-primary-dark);
+    color: #fff;
+}
+
+/* 4. Main Content -------------------------------------------------------*/
+main {
+    max-width: 62.5rem; /* 1000px */
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+section {
+    background-color: var(--colour-surface);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* 5. gallery and product cards -------------------------------------------------------*/
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+.gallery-item {
+    background-color: var(--colour-surface);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+    transition: transform 0.2s ease; 
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+}
+
+.gallery-item h2 {
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+/* 6. Forms (Contact Page) -------------------------------------------------------*/
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 30rem;
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+input,
+textarea {
+    font-family: var(--font-base);
+    font-size: 1rem;
+    padding: 0.6rem;
+    border: 1px solid #cfd8cf;
+    border-radius: var(--radius);
+    background-color: var(--colour-bg);
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--colour-primary);
+    box-shadow: 0 0 0 3px var(--colour-primary-light);
+}
+
+input[type="submit"] {
+    margin-top: 1rem;
+    background-color: var(--colour-primary);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+input[type="submit"]:hover{
+    background-color: var(--colour-primary-dark);
+}
+
+input[type="submit"]:active{
+    background-color: var(--colour-accent);
+    color: var(--colour-primary-dark);
+}
+
+iframe {
+    width: 100%;
+    max-width: 37.5rem; /* 600px */
+    border-radius: var(--radius);
+    margin-top: 0.75rem;
+}
+
+/* 7. Footer -------------------------------------------------------*/
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--colour-primary-dark);
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+/*  ==============================
+    8. Responsive Design - Breakpoints
+    Mobile-first overrides are avoided here since the base above is desktop;
+    instead we scale down at tablet and mobile breakpoints using media queries.
+    ================================= */
+
+    /* Tablet breakpoint: 768px and below */
+    @media screen and (max-width: 48rem) {
+        header {
+            font-size: 1.5rem;
+        }
+
+        main {
+            padding: 1.5rem 1rem;
+            gap: 1.25rem;
+        }
+
+        .gallery {
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* Mobile breakpoint: 480px and below */
+    @media screen and (max-width: 30rem) {
+        header {
+            padding: 1rem;
+        }
+
+        nav {
+            flex-direction: column;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        nav a {
+            width: 100%;
+            text-align: center;
+        }
+
+        main {
+            padding: 1rem 0.75rem;
+        }
+
+        section {
+            padding: 1rem;
+        }
+
+        .gallery {
+            grid-template-columns: 1fr;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+        }
+
+        form {
+            max-width: 100%;
+        }
+    }
+                
+
+        
