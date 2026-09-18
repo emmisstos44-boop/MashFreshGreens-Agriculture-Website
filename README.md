@@ -201,7 +201,23 @@ All the changes made to this project are documented below based on the feedback 
 - Added colours, borders, shadows and hover effects.
 - Added responsive layouts for desktop, tablet and mobile.
 - Added responsive images.
-- Tested the website on different screen sizes and browsers.
+- Fixed: Unclosed `<footer>` tags on `index.html` and `about.html`, missing
+  `<header>` wrapper on `products.html`, and a duplicate `</section>` on
+  `contact.html`.
+- Tested: Verified layout and responsiveness using browser developer tools
+  across desktop (1280px), tablet (iPad Mini, ~768px), and mobile
+  (iPhone SE, 375px) viewports. Screenshots below.
+
+#### Screenshots
+
+**Desktop — Contact page**
+![Desktop contact page](screenshots/desktop-contact.png)
+
+**Tablet (iPad Mini) — Services page**
+![Tablet services page](screenshots/tablet-ipadmini-services.png)
+
+**Mobile (iPhone SE) — Home page**
+![Mobile home page](screenshots/mobile-iphonese-home.png)
 
 ## References
 
