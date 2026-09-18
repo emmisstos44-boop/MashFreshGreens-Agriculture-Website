@@ -155,6 +155,52 @@ Low-fedility wireframes are sketched to plan the structure of each page (header,
 └─────────────────────────────────────┘
 ```
 
+## Changelog
+
+All the changes made to this project are documented below based on the feedback from part 1.
+
+## Part 1 Inital website foundation
+
+- Created the MashFreshGreen Agriculture website project.
+- Created the Home page.
+- Created the About Us page.
+- Created the Services page.
+- Created the Products page.
+- Created the Contact page.
+- Added navigation between all website pages.
+- Added basic website content.
+- Added images.
+- Added a contact form.
+- Added internal and external links.
+- Created the CSS folder and external stylesheet.
+- Created the images folder.
+- Created project documentation.
+
+
+## Part 1 corrections
+
+- Added Wireframes section to README showing the planned page layout.
+- Added GitHub repository link to README.
+- Added changelog section to track the project's development
+- Fixed broken image folder structure
+- Added initial HTML structure for Home, About, Services, Products and Contact page.
+- Removed unnecessary inline styling from HTML elements.
+- Fixed missing header tag.
+- Added project images (`crops.jpg`, `farm.jpg`, `produce.jpg`,
+  `irrigation.jpg`).
+- Fixed image mismatch.
+- Fixed unused section which is removed.
+  
+
+## Part 2
+
+- Added base CSS styling.
+- Added typography styling.
+- Added desktop layout using CSS Grid/Flexbox.
+- Added colours, borders, shadows and hover effects.
+- Added responsive layouts for desktop, tablet and mobile.
+- Added responsive images.
+- Tested the website on different screen sizes and browsers.
 
 
 
