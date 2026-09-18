@@ -190,6 +190,7 @@ All the changes made to this project are documented below based on the feedback 
   `irrigation.jpg`).
 - Fixed image mismatch.
 - Fixed unused section which is removed.
+- Added comments for about, contact, index, products and services page
   
 
 ## Part 2
