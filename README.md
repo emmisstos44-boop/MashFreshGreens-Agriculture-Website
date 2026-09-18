@@ -203,6 +203,17 @@ All the changes made to this project are documented below based on the feedback 
 - Added responsive images.
 - Tested the website on different screen sizes and browsers.
 
+## References
+
+- The Independent Institute of Education (Pty) Ltd. (2026). *WEDE5020: Web
+  Development (Introduction) Module Guide.*
+- Mozilla Developer Network (MDN). *HTML: HyperText Markup Language.*
+  https://developer.mozilla.org/en-US/docs/Web/HTML
+- Mozilla Developer Network (MDN). *CSS: Cascading Style Sheets.*
+  https://developer.mozilla.org/en-US/docs/Web/CSS
+- MDN Web Docs (2026) CSS styling basics.*https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics 
+- MDN Web Docs (2026) CSS layout.*https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout
+
 
 
 
