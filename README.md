@@ -65,6 +65,99 @@ MashFreshGreens-Website/
 
 Repository Link: https://github.com/emmisstos44-boop/MashFreshGreens-Agriculture-Website.git
 
+## Wireframes
+
+Low-fedility wireframes are sketched to plan the structure of each page (header, nav, content sections, footer).
+
+### Home
+
+```text
+┌─────────────────────────────────────┐
+│      MashFreshGreens Agriculture    │
+│  [Home][About][Services][Products]  │
+│              [Contact]              │
+├─────────────────────────────────────┤
+│  Welcome to MashFreshGreens         │
+│  paragraph text...                  │
+├─────────────────────────────────────┤
+│  Our Commitment                     │
+│  paragraph text...                  │
+├─────────────────────────────────────┤
+│   © 2026 MashFreshGreens Agriculture│
+└─────────────────────────────────────┘
+```
+
+### About
+
+```text
+┌─────────────────────────────────────┐
+│           header + nav              │
+├─────────────────────────────────────┤
+│  About MashFreshGreens              │
+├─────────────────────────────────────┤
+│  Our Mission                        │
+├─────────────────────────────────────┤
+│  Our Vision                         │
+├─────────────────────────────────────┤
+│  Our Values (list)                  │
+├─────────────────────────────────────┤
+│           footer                    │
+└─────────────────────────────────────┘
+```
+
+### Services
+
+```text
+┌─────────────────────────────────────┐
+│           header + nav              │
+├─────────────────────────────────────┤
+│  Our Products and Services          │
+├─────────────────────────────────────┤
+│  Our Services (list of 5 items)     │
+├─────────────────────────────────────┤
+│           footer                    │
+└─────────────────────────────────────┘
+```
+
+### Products
+
+```text
+┌─────────────────────────────────────┐
+│           header + nav              │
+├─────────────────────────────────────┤
+│  Our Gallery — intro text           │
+├─────────────────────────────────────┤
+│  ┌───────────┐   ┌───────────┐      │
+│  │  Our Farm │   │ Our Crops │      │
+│  └───────────┘   └───────────┘      │
+│  ┌───────────┐   ┌───────────┐      │
+│  │  Produce  │   │Irrigation │      │
+│  └───────────┘   └───────────┘      │
+├─────────────────────────────────────┤
+│           footer                    │
+└─────────────────────────────────────┘
+```
+
+### Contact
+
+```text
+┌─────────────────────────────────────┐
+│           header + nav              │
+├─────────────────────────────────────┤
+│  Contact Us — email/phone/address   │
+│  [Google Map embed]                 │
+├─────────────────────────────────────┤
+│  Send us a Message                  │
+│  Name / Email / Message fields      │
+│  [ Send Message ]                   │
+├─────────────────────────────────────┤
+│           footer                    │
+└─────────────────────────────────────┘
+```
+
+
+
+
 
 
 
