@@ -22,9 +22,44 @@ The website consists of the following pages:
 ## Technologies Used
 
 - HTML5
-- CSS3
+- CSS3 (Flexbox, Grid, media queries, custom properties)
+- JavaScript (vanilla JS — DOM manipulation, form validation, AJAX via `fetch()`)
+- [Leaflet.js](https://leafletjs.com/) + OpenStreetMap (interactive map)
+- [Formspree](https://formspree.io/) (form backend / email delivery)
 - Git
 - GitHub
+
+## Form Setup (Formspree)
+
+Both `contact.html` and `enquiry.html` submit via AJAX to
+[Formspree](https://formspree.io), a free third-party service that emails
+the form contents without needing a custom backend server.
+
+How it was set up:
+
+1. Created a free account at [formspree.io](https://formspree.io).
+2. Created a new form, which gave the endpoint
+   `https://formspree.io/f/mwllwpwa`.
+3. Set that endpoint as the `action` of the form in `contact.html` and
+   `enquiry.html`.
+4. Submitted each form once and confirmed the email in the Formspree
+   dashboard (the first submission requires a one-time confirmation).
+
+`js/script.js` handles the client-side validation and AJAX submission
+using `fetch()`, so the page does not reload when a form is sent.
+
+## Deployment
+
+The site is static (no server-side code), so it can be hosted on any
+static host.
+
+- **Netlify (recommended):** go to
+  [app.netlify.com/drop](https://app.netlify.com/drop) and drag the
+  project folder onto the page for an instant live URL.
+- **GitHub Pages:** repository Settings → Pages → deploy from the `main`
+  branch, root folder.
+
+Live site link: **[https://vocal-pony-4645d3.netlify.app]**
 
 ## Target Audience
 
@@ -54,12 +89,18 @@ MashFreshGreens-Website/
 ├── about.html
 ├── services.html
 ├── products.html
+├── enquiry.html
 ├── contact.html
 ├── css/
 │   └── style.css
+├── js/
+│   └── script.js
 ├── images/
+├── screenshots/
+├── robots.txt
+├── sitemap.xml
 └── README.md
-   ```
+```
 
 ## GitHub Repository 
 
@@ -113,7 +154,12 @@ Low-fedility wireframes are sketched to plan the structure of each page (header,
 ├─────────────────────────────────────┤
 │  Our Products and Services          │
 ├─────────────────────────────────────┤
-│  Our Services (list of 5 items)     │
+│  [ Search services... ]             │
+│  ▸ Crop Production      (accordion) │
+│  ▸ Agricultural Consulting          │
+│  ▸ Soil Management                  │
+│  ▸ Irrigation Guidance              │
+│  ▸ Sustainable Farming              │
 ├─────────────────────────────────────┤
 │           footer                    │
 └─────────────────────────────────────┘
@@ -133,6 +179,24 @@ Low-fedility wireframes are sketched to plan the structure of each page (header,
 │  ┌───────────┐   ┌───────────┐      │
 │  │  Produce  │   │Irrigation │      │
 │  └───────────┘   └───────────┘      │
+│  (click any image → lightbox popup) │
+├─────────────────────────────────────┤
+│           footer                    │
+└─────────────────────────────────────┘
+```
+### Enquiry
+
+```text
+┌─────────────────────────────────────┐
+│           header + nav              │
+├─────────────────────────────────────┤
+│  Make an Enquiry — intro text       │
+├─────────────────────────────────────┤
+│  Name / Email / Phone fields        │
+│  Reason: [ dropdown: Quote /        │
+│            Volunteer / Sponsor ]    │
+│  Details: [ textarea ]              │
+│  [ Submit Enquiry ]                 │
 ├─────────────────────────────────────┤
 │           footer                    │
 └─────────────────────────────────────┘
@@ -145,7 +209,7 @@ Low-fedility wireframes are sketched to plan the structure of each page (header,
 │           header + nav              │
 ├─────────────────────────────────────┤
 │  Contact Us — email/phone/address   │
-│  [Google Map embed]                 │
+│  [ Interactive Leaflet map ]        │
 ├─────────────────────────────────────┤
 │  Send us a Message                  │
 │  Name / Email / Message fields      │
@@ -219,6 +283,34 @@ All the changes made to this project are documented below based on the feedback 
 **Mobile (iPhone SE) — Home page**
 ![Mobile home page](screenshots/mobile-iphonese-home.png)
 
+## Part 3
+
+- Added a new Enquiry page (`enquiry.html`) with its own form for
+  requesting a quote, volunteering, or sponsoring a project — kept
+  separate from the general message form on the Contact page.
+- Added `js/script.js`, linked from every page, containing:
+  - An accordion on the Services page so each service expands/collapses
+    on click instead of showing everything at once.
+  - A live search box on the Services page that filters the service list
+    as the user types.
+  - A lightbox on the Products page so clicking a gallery image opens a
+    larger view instead of just sitting flat on the page.
+  - An interactive Leaflet.js map on the Contact page, replacing the
+    static Google Maps embed with a real pannable/zoomable map and a
+    marker popup.
+  - Client-side form validation (required fields, email format, minimum
+    message length) with inline error messages for both forms.
+  - AJAX form submission using `fetch()` so both forms submit without
+    reloading the page, showing a loading state and a success/error
+    message instead.
+- Added SEO: unique title and meta description/keywords on every page,
+  `robots.txt`, and `sitemap.xml` listing all 6 pages.
+- Added internal links between the Contact and Enquiry pages so visitors
+  land on whichever form matches what they need.
+- Added Form Setup and Deployment sections to this README.
+- Fixed: replaced the non-interactive Google Maps iframe with a fully
+  interactive map.
+
 ## References
 
 - The Independent Institute of Education (Pty) Ltd. (2026). *WEDE5020: Web
@@ -229,8 +321,16 @@ All the changes made to this project are documented below based on the feedback 
   https://developer.mozilla.org/en-US/docs/Web/CSS
 - MDN Web Docs (2026) CSS styling basics.*https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics 
 - MDN Web Docs (2026) CSS layout.*https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout
-
-
+- Mozilla Developer Network (MDN). *JavaScript.*
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript
+- Leaflet. *Leaflet — an open-source JavaScript library for interactive maps.*
+  https://leafletjs.com/
+- OpenStreetMap contributors. *OpenStreetMap.*
+  https://www.openstreetmap.org/copyright
+- Formspree. *Formspree — Form backend for static sites.*
+  https://formspree.io/
+- Google Search Central. *Search Engine Optimization (SEO) Starter Guide.*
+  https://developers.google.com/search/docs/fundamentals/seo-starter-guide
 
 
 
