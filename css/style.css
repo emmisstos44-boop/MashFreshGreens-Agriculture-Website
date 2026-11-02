@@ -1,6 +1,7 @@
 /*==================================
     MashFreshGreens Agriculture - Stylesheet
     Part 2: CSS Styling - Desktop base styles + Responsive Design
+    Part 3: Interactive elements (accordion, lightbox, map) + form states
 ====================================*/
 
 /* 1. CSS Reset / Base Style ------------------------------------------ */
@@ -182,7 +183,8 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
     font-family: var(--font-base);
     font-size: 1rem;
     padding: 0.6rem;
@@ -192,7 +194,8 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
     outline: none;
     border-color: var(--colour-primary);
     box-shadow: 0 0 0 3px var(--colour-primary-light);
@@ -217,6 +220,46 @@ input[type="submit"]:active{
     color: var(--colour-primary-dark);
 }
 
+input[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Part 3 validation + AJAX status styling, invalid marks a field that failed validation (red border). The error-message span next to each field holds that field's specific message. The form-status is the single AJAX-result message shown after submit - colour-coded so success/failure is obvious at a glance without the user needing to read the text. */
+input:invalid,
+textarea:invalid,
+select:invalid {
+    border-color: #c62828; /* red for invalid */
+}
+
+.error-message {
+    display: block;
+    color: #c62828;
+    font-size: 0.875rem;
+    min-height: 1.1rem; /* reserve space for error message */
+}
+
+.form-status {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+}
+
+.form-status:empty {
+    display: none; /* hide when empty */
+}
+
+.form-status.success {
+    background-color: #e8f5e9; /* light green */
+    color: var(--colour-primary);
+}
+
+.form-status.error {
+    background-color: #fdecea; /* light red */
+    color: #c62828;
+}
+
 iframe {
     width: 100%;
     max-width: 37.5rem; /* 600px */
@@ -233,8 +276,124 @@ footer {
     font-size: 0.875rem;
 }
 
+/* ==============================
+   8. Part 3: Interactive Elements
+    ================================= */
+
+/* 8.1 Accordion (Services Page) Each header is a real button not just a div, so it's keyboard-focusable and screen-reader friendly. The panel's max-height is animated via CSS transition rather than display: none/block, which is what gives the smooth slide effect.*/
+.accordion-item {
+    border-bottom: 1px solid #e0e6e0;
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    font-family: var(--font-base);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--colour-primary-dark);
+    padding: 0.9rem 0.25rem;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Add a plus/minus icon to the accordion header */
+.accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 0.25rem;
+    font-size: 1.3rem;
+    transition: transform 0.2s ease;
+}   
+
+.accordion-item.open .accordion-header::after {
+    content: "\2212"; /* Unicode minus sign */
+}
+
+.accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-item.open .accordion-panel {
+    max-height: 12rem; /* adjust as needed for content */
+}
+
+.accordion-panel p {
+    padding: 0 0.25rem 1rem;
+}
+
+/*8.2 Service search box------------------------------------------------*/
+#service-search {
+    width: 100%;
+    max-width: 25rem;
+    margin: 0.75rem 0 1rem;
+}
+
+#no-results {
+    color: var(--colour-text-light);
+    font-style: italic;
+}
+
+/* 8.3 Lightbox (Gallery Page) -------------------------------------------------------*/
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 1000;
+    padding: 1.5rem;
+}
+
+.lightbox.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: min(90vw, 50rem);
+    max-height: 75vh;
+    border-radius: var(--radius);
+}
+
+.lightbox p {
+    color: #fff;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* 8.4 Interactive Map -------------------------------------------------------*/
+#map {
+    height: 22rem;
+    width: 100%;
+    border-radius: var(--radius);
+    margin-top: 0.75rem;
+    z-index: 1;
+}
+    
 /*  ==============================
-    8. Responsive Design - Breakpoints
+    9. Responsive Design - Breakpoints
     Mobile-first overrides are avoided here since the base above is desktop;
     instead we scale down at tablet and mobile breakpoints using media queries.
     ================================= */
@@ -257,6 +416,10 @@ footer {
 
         h2 {
             font-size: 1.3rem;
+        }
+
+        #map {
+            height: 18rem;
         }
     }
 
@@ -299,6 +462,15 @@ footer {
 
         form {
             max-width: 100%;
+        }
+
+        #map {
+            height: 15rem;
+        }
+
+        .lightbox-close {
+            top: 0.75rem;
+            right: 1rem;
         }
     }
                 
