@@ -4,7 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MashFreshGreens Agriculture | Contact</title>
+    <meta name="description" content="Get in touch with MashFreshGreens Agriculture. Send us a general message and find our location in Polokwane, Limpopo, South Africa.">
+    <meta name="keywords" content="contact MashFreshGreens, agriculture contact Polokwane, Limpopo agriculture address">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Part 3: Leaflet.js — open-source interactive mapping library (no API key required) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""> 
 </head>
 <body>
     <header>
@@ -14,13 +20,18 @@
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
     <main>
          <!--
-            Contact details + embedded map. The map is inside the address paragraph
-            so screen readers announce it right after the address it corresponds to.
+            Contact details + interactive map. The map is inside the address
+            paragraph so screen readers announce it right after the address
+            it corresponds to.
+
+            PART 3 — CORRECTION: the static Google Maps <iframe> has been
+            replaced with a real interactive Leaflet.js map. 
         -->
         <section>
             <h2>Contact Us</h2>
@@ -36,42 +47,56 @@
             </p>
             <p>
                 <strong>Address:</strong> Limpopo Polokwane 0700, South Africa
-                <!-- Google Maps embed: loading="lazy" so it doesn't slow down the page load for visitors who don't scroll down to it -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29180.00782610366!2d29.41975461083985!3d-23.907307899999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec6d828de575a1b%3A0xd94d186f3a5b768c!2sDepartment%20of%20Agriculture%20and%20Rural%20Development!5e0!3m2!1sen!2sza!4v1786697962662!5m2!1sen!2sza" width="600"
-                 height="450" 
-                 style="border:0;" 
-                 allowfullscreen="" 
-                 loading="lazy" 
-                 referrerpolicy="strict-origin-when-cross-origin"></iframe>               
             </p>
+
+
+            <!-- PART 3: Leaflet map container — populated by js/script.js -->
+            <div id="map" role="application" aria-label="Interactive map showing our location"></div>
         </section>
          <!--
-            Contact form: all three fields are marked "required" so the browser
-            blocks submission until name, email, and message are filled in,
-            improving the user experience by catching errors before submit.
+            Contact form:  All fields are marked "required" so the browser blocks
+            submission until name, email, and message are filled in. PART 3
+            adds JS validation and AJAX submission on top of this HTML5
+            validation (see js/script.js) — no page reload; the visitor sees
+            an inline success/error message below the button instead.
         -->
         
         <section>
             <h2>Send us a Message</h2>
-            <form>
+            <!--
+                The "action" URL below is our Formspree form endpoint. Formspree
+                receives the submitted fields and emails them to the site owner,
+                so no custom backend server is needed. js/script.js sends the
+                data with fetch() (AJAX) so the page does not reload.
+            -->
+            <form id="contact-form" action="https://formspree.io/f/mwllwpwa" method="POST" novalidate>
                 <label for="name">Name:</label>
                 <br>
                 <input type="text" id="name" name="name" required>
-                <br><br>
+                <span class="error-message" data-error-for="name"></span>
+                <br>
                 <label for="email">Email:</label>
                 <br>
                 <input type="email" id="email" name="email" required>
-                <br><br>
+                <span class="error-message" data-error-for="email"></span>
+                <br>
                 <label for="message">Message:</label>
                 <br>
                 <textarea id="message" name="message" rows="5" required></textarea>
-                <br><br>
+                <span class="error-message" data-error-for="message"></span>
+                <br>
                 <input type="submit" value="Send Message">
+                <p class="form-status" role="status" aria-live="polite"></p>
             </form>
         </section>
     </main>
     <footer>
         <p>&copy; 2026 MashFreshGreens Agriculture. All rights reserved.</p>
     </footer>
+
+     <!-- PART 3: Leaflet.js library — loaded before our own script.js, which initialises the map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="js/script.js"></script>   
 </body>
 </html>
