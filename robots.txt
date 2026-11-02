@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://YOUR-DEPLOYED-SITE-URL/sitemap.xml
+Sitemap: https://vocal-pony-4645d3.netlify.app/sitemap.xml
