@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MashFreshGreens Agriculture | Enquiry</title>
+    <meta name="description" content="Request a quote or enquire about volunteering or sponsoring MashFreshGreens Agriculture's sustainable farming initiatives.">
+    <meta name="keywords" content="agriculture quote request, sponsor farming project, volunteer agriculture South Africa, enquiry form">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>MashFreshGreens Agriculture</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <!--
+            NEW PAGE (Part 3): as noted in the Part 1 instructions, enquiry.html
+            and contact.html both need a form, but for different purposes. This
+            page is for a SPECIFIC structured request — a quote, becoming a
+            volunteer, or sponsoring a project — so it asks for a reason/type
+            selection up front, unlike contact.html's open-ended general message.
+        -->
+        <section>
+            <h2>Make an Enquiry</h2>
+            <p>
+                Interested in requesting a quote, volunteering, or sponsoring one of our projects? Fill in the form below and let us know what you're after — once validated, we'll process your enquiry and respond with the relevant information.
+            </p>
+            <p>
+                For a general question instead, please use our <a href="contact.html">Contact page</a>.
+            </p>
+        </section>
+
+        <section>
+            <!--
+                Same approach as contact.html: HTML5 "required" validation plus
+                JS validation and AJAX submission (js/script.js). Replace the
+                form "action" below with your own Formspree endpoint — see
+                README.md "Form Setup" section.
+            -->
+            <form id="enquiry-form" action="https://formspree.io/f/mwllwpwa" method="POST" novalidate>
+                <label for="enquiry-name">Name:</label>
+                <br>
+                <input type="text" id="enquiry-name" name="name" required>
+                <span class="error-message" data-error-for="name"></span>
+                <br>
+                <label for="enquiry-email">Email:</label>
+                <br>
+                <input type="email" id="enquiry-email" name="email" required>
+                <span class="error-message" data-error-for="email"></span>
+                <br>
+                <label for="enquiry-phone">Phone:</label>
+                <br>
+                <input type="tel" id="enquiry-phone" name="phone">
+                <span class="error-message" data-error-for="phone"></span>
+                <br>
+                <label for="enquiry-type">Reason for Enquiry:</label>
+                <br>
+                <select id="enquiry-type" name="enquiry_type" required>
+                    <option value="" disabled selected>Please select one...</option>
+                    <option value="Quote">Request a Quote</option>
+                    <option value="Volunteer">Become a Volunteer</option>
+                    <option value="Sponsor">Sponsor a Project</option>
+                    <option value="Other">Other</option>
+                </select>
+                <span class="error-message" data-error-for="enquiry_type"></span>
+                <br>
+                <label for="enquiry-message">Details:</label>
+                <br>
+                <textarea id="enquiry-message" name="message" rows="5" required
+                    placeholder="Tell us more about your request (e.g. quantity for a quote, availability for volunteering, budget for sponsorship)..."></textarea>
+                <span class="error-message" data-error-for="message"></span>
+                <br>
+                <input type="submit" value="Submit Enquiry">
+                <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 MashFreshGreens Agriculture. All rights reserved.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
