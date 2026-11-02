@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MashFreshGreens Agriculture | Products</title>
+    <meta name="description" content="Browse photos of MashFreshGreens Agriculture's farm, crops, produce and irrigation systems.">
+    <meta name="keywords" content="agriculture gallery, farm photos, crops, fresh produce, irrigation system">
     <link rel="stylesheet" href="css/style.css">
     
 </head>
@@ -21,6 +23,7 @@
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="products.html">Products</a>
+            <a href="enquiry.html">Enquiry</a>
             <a href="contact.html">Contact</a>
         </nav>
     </header>
@@ -41,6 +44,9 @@
             nested inside wrongly-named folders (e.g. images/farm.jpg/ was a FOLDER
             containing the real image under a different filename). The images folder
             has been flattened so these src paths now correctly point at real files.
+
+             PART 3: clicking any image opens it in a lightbox overlay (see
+            js/script.js) instead of just sitting flat on the page.
         -->
 
         <section class="gallery">
@@ -66,5 +72,14 @@
     <footer>
         <p>&copy; 2026 MashFreshGreens Agriculture. All rights reserved.</p>
     </footer> 
+
+    <!-- PART 3: Lightbox overlay markup. Hidden by default (.open class toggled by script.js) -->
+    <div id="lightbox" class="lightbox">
+        <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close enlarged image">&times;</button>
+        <img id="lightbox-img" src="" alt="">
+        <p id="lightbox-caption"></p>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
